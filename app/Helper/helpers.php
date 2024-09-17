@@ -24,3 +24,16 @@ if (!function_exists("handleUpload")) {
         }
     }
 }
+
+/** Delete file */
+if (!function_exists("deleteFileIfExists")) {
+    function deleteFileIfExists($filePath) {
+        try {
+            if (File::exists(public_path($filePath))) {
+                File::delete(public_path($filePath));
+            }
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+}
