@@ -71,6 +71,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css"
       integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ=="
       crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+<script src="{{asset('assets/js/plugins/summernote-bs4.js')}}"></script>
 <script src="{{asset('assets/js/plugins/jquery.selectric.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/jquery.uploadPreview.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/bootstrap-tagsinput.min.js')}}"></script>
@@ -91,9 +93,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-
-</script>
 
 <!-- Show dynamic validation errors -->
 <script>

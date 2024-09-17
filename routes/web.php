@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -50,5 +51,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /* Service Route */
     Route::resource('service', ServiceController::class);
+
+    /* About Route */
+    Route::get("resume/download", [AboutCOntroller::class, 'resumeDownload'])->name('resume.download');
+    Route::resource('about', AboutController::class);
 
 });
