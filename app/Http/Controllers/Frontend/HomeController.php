@@ -9,6 +9,8 @@ use App\Models\Hero;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
 use App\Models\Service;
+use App\Models\SkillItem;
+use App\Models\SkillSectionSetting;
 use App\Models\TyperTitle;
 
 class HomeController extends Controller
@@ -22,6 +24,8 @@ class HomeController extends Controller
         $portfolioTitle = PortfolioSectionSetting::first();
         $portfolioCategories = Category::all();
         $portfolioItems = PortfolioItem::all();
+        $skill = SkillSectionSetting::first();
+        $skillItems = SkillItem::all();
         return view(
             'frontend.home',
             compact(
@@ -31,7 +35,9 @@ class HomeController extends Controller
                 'about',
                 'portfolioTitle',
                 'portfolioCategories',
-                'portfolioItems'
+                'portfolioItems',
+                'skill',
+                'skillItems',
             )
         );
     }

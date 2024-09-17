@@ -157,9 +157,6 @@
                             console.log(error);
                         }
                     })
-
-
-
                 }
             });
         });
