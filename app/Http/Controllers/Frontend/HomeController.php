@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Category;
+use App\Models\Experience;
 use App\Models\Hero;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
@@ -26,6 +27,7 @@ class HomeController extends Controller
         $portfolioItems = PortfolioItem::all();
         $skill = SkillSectionSetting::first();
         $skillItems = SkillItem::all();
+        $experience  = Experience::first();
         return view(
             'frontend.home',
             compact(
@@ -38,6 +40,7 @@ class HomeController extends Controller
                 'portfolioItems',
                 'skill',
                 'skillItems',
+                'experience',
             )
         );
     }
