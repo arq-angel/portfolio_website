@@ -47,4 +47,33 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Illuminate\Http\Response
+     */
+    public function render($request, Throwable $exception)
+    {
+        // Handle HTTP exceptions specifically
+        if ($this->isHttpException($exception)) {
+            $status = $exception->getStatusCode();
+
+            // Exclude 404 from custom handling, use the default Laravel 404 view
+            if ($status == 404) {
+                return parent::render($request, $exception);  // Default Laravel handling for 404
+            }
+
+            // Handle other HTTP exceptions with custom pages for different status codes
+            if (view()->exists("errors.{$status}")) {
+                return response()->view("errors.{$status}", [], $status);
+            }
+        }
+
+        // Generic fallback for all other non-404 exceptions
+        return response()->view('errors.generic', ['exception' => $exception], 500);
+    }
+
 }
