@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
      * @param  \Throwable  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Throwable $exception)
+    /*public function render($request, Throwable $exception)
     {
         // Handle HTTP exceptions specifically
         if ($this->isHttpException($exception)) {
@@ -74,6 +74,6 @@ class Handler extends ExceptionHandler
 
         // Generic fallback for all other non-404 exceptions
         return response()->view('errors.generic', ['exception' => $exception], 500);
-    }
+    }*/
 
 }

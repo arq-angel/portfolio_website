@@ -65,7 +65,11 @@ class AboutController extends Controller
     public function resumeDownload()
     {
         $about = About::first();
-        return response()->download(public_path($about->resume));
+        if ($about && $about->resume && file_exists(public_path($about->resume))) {
+            return response()->download(public_path($about->resume));
+        }
+
+        return redirect()->back()->with('error', 'Resume file not found.');
     }
 
     public function destroy($id)

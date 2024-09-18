@@ -17,15 +17,16 @@
     <link rel="stylesheet" href="{{  asset('assets/css/plugins/selectric.css')}}">
     <link rel="stylesheet" href="{{  asset('assets/css/plugins/bootstrap-tagsinput.css')}}">
     <link rel="stylesheet" href="{{  asset('assets/css/plugins/bootstrap-timepicker.min.css')}}">
-    <link rel="stylesheet" href="{{  asset('assets/css/plugins/daterangepicker.css')}}">
-    <link rel="stylesheet" href="{{  asset('assets/css/plugins/select2.min.css')}}">
+{{--    <link rel="stylesheet" href="{{  asset('assets/css/plugins/daterangepicker.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{  asset('assets/css/plugins/select2.min.css')}}">--}}
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/datatable.css') }}">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{--@vite(['resources/css/app.css', 'resources/js/app.js'])--}}
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
@@ -98,6 +99,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="{{ asset("assets/js/datatable.js") }}"></script>
+
 
 <!-- Show dynamic validation errors -->
 <script>
@@ -110,13 +113,6 @@
 
 <script>
     $(document).ready(function () {
-
-        // csrf token
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
         // sweet alert for delete
         $('body').on('click', '.delete-item', function (e) {
@@ -136,6 +132,9 @@
                     $.ajax({
                         type: 'delete',
                         url: deleteUrl,
+                        data: {
+                          _token: "{{ csrf_token() }}"
+                        },
                         success: function (data) {
                             if (data.status == 'error') {
                                 Swal.fire({

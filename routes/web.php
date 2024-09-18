@@ -60,10 +60,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+/** Frontend Routes */
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
+Route::get("resume/download", [AboutController::class, 'resumeDownload'])->name('resume.download');
 
 /* Admin Routes */
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -74,7 +76,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('service', ServiceController::class);
 
     /* About Route */
-    Route::get("resume/download", [AboutCOntroller::class, 'resumeDownload'])->name('resume.download');
     Route::resource('about', AboutController::class);
 
     /* Category Route */
