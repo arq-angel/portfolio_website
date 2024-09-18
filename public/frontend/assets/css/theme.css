@@ -223,7 +223,7 @@ Button-Styles
 }
 
 .main_menu .navbar-nav li .active,
-.main_menu .navbar-nav li:hover>a {
+.main_menu .navbar-nav li:hover > a {
     color: #ff885e;
 }
 
@@ -279,7 +279,7 @@ Button-Styles
     z-index: 999;
 }
 
-.main_menu .sub_menu>li>a {
+.main_menu .sub_menu > li > a {
     color: #190844;
     margin: 0;
     line-height: 0;
@@ -1437,8 +1437,8 @@ Footer-Area
     color: #3a3a3a;
 }
 
-.main_menu.menu_fix ul li>a i.plus:before,
-.main_menu.menu_fix ul li>a i.plus:after {
+.main_menu.menu_fix ul li > a i.plus:before,
+.main_menu.menu_fix ul li > a i.plus:after {
     background-color: #3a3a3a !important;
 }
 
@@ -1521,4 +1521,29 @@ Footer-Area
 
 .footer-widgets .text-box ul li a:hover {
     background: #ff895e
+}
+
+
+.page-item {
+    background: #558bff;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    color: #141414;
+}
+
+.page-link {
+    background-color: #f9f9f9;
+    border: none;
+    color: black;
+}
+
+.page-item.disabled > .page-link {
+    background-color: #f9f9f9 !important;
+    border: none;
+    color: black;
 }

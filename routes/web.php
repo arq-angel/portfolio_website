@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -49,6 +52,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 
 /* Admin Routes */
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -85,5 +90,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /* Feedback Section Setting Route */
     Route::resource('feedback-section-setting', FeedbackSectionSettingController::class);
+
+    /* Blog Category Route */
+    Route::resource('blog-category', BlogCategoryController::class);
+
+    /* Blog Route */
+    Route::resource('blog', BlogController::class);
+
+    /* Blog Section Setting Route */
+    Route::resource('blog-section-setting', BlogSectionSettingController::class);
 
 });
