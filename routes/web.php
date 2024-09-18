@@ -137,7 +137,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /* Seo Setting Route */
     Route::resource('seo-setting', SeoSettingController::class);
-
 });
 
 
