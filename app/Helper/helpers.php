@@ -52,5 +52,18 @@ if (!function_exists("getColor")) {
 
         return $colors[$index % count($colors)];
     }
-
 }
+
+/** Set Sidebar Active */
+if (!function_exists("setSidebarActive")) {
+    function setSidebarActive($route) {
+        if (is_array($route)) {
+            foreach ($route as $r) {
+                if (request()->routeIs($r)) {
+                    return 'active';
+                }
+            }
+        }
+    }
+}
+
