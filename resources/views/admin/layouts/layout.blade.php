@@ -22,6 +22,8 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
@@ -80,6 +82,7 @@
 <script src="{{asset('assets/js/plugins/daterangepicker.js')}}"></script>
 <script src="{{asset('assets/js/plugins/select2.full.min.js')}}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
 
 <!-- Template JS File -->
 <script src="{{asset('assets/js/scripts.js')}}"></script>
