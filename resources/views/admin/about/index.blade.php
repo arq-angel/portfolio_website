@@ -4,7 +4,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route("dashboard") }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>About Section</h1>
         </div>
@@ -37,7 +37,7 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" name="title" class="form-control"
-                                               value="{{ $about->title }}">
+                                               value="{{ $about->title ?? ''}}">
                                     </div>
                                 </div>
 
@@ -46,11 +46,11 @@
                                         class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
                                     <div class="col-sm-12 col-md-7">
                                         <textarea name="description"
-                                                  class="summernote">{!! $about->description !!}</textarea>
+                                                  class="summernote">{!! $about->description ?? '' !!}</textarea>
                                     </div>
                                 </div>
 
-                                @if($about->resume)
+                                @if(isset($about) && $about->resume)
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                         <div class="col-sm-12 col-md-7">
@@ -92,7 +92,7 @@
     <script>
         $(document).ready(function () {
             $("#image-preview").css({
-                "background-image": "url('{{ asset($about->image) }}')",
+                "background-image": "url('{{ asset($about->image ?? '') }}')",
                 "background-size": "cover",
                 "background-position": "center center"
             })

@@ -4,7 +4,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route("dashboard") }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Skill Section Setting</h1>
         </div>
@@ -26,14 +26,14 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control" value="{{ $skillSetting->title }}">
+                                        <input type="text" name="title" class="form-control" value="{{ $skillSetting->title ?? ''}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Sub Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="sub_title" id="" class="form-control" style="height: 100px;">{!! $skillSetting->sub_title !!}</textarea>
+                                        <textarea name="sub_title" id="" class="form-control" style="height: 100px;">{!! $skillSetting->sub_title ?? '' !!}</textarea>
                                     </div>
                                 </div>
 
@@ -67,7 +67,7 @@
     <script>
         $(document).ready(function () {
             $("#image-preview").css({
-                "background-image": "url('{{ asset($skillSetting->image) }}')",
+                "background-image": "url('{{ asset($skillSetting->image ?? '') }}')",
                 "background-size": "cover",
                 "background-position": "center center"
             })

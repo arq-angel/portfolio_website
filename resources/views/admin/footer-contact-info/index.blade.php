@@ -4,7 +4,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route("dashboard") }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Footer Contact Information</h1>
         </div>
@@ -26,21 +26,21 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Address</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="address" class="form-control" value="{{ $footerContactInfo->address }}">
+                                        <input type="text" name="address" class="form-control" value="{{ $footerContactInfo->address ?? ''}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Phone</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="phone" class="form-control" value="{{ $footerContactInfo->phone }}">
+                                        <input type="text" name="phone" class="form-control" value="{{ $footerContactInfo->phone ?? ''}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="email" class="form-control" value="{{ $footerContactInfo->email }}">
+                                        <input type="text" name="email" class="form-control" value="{{ $footerContactInfo->email ?? ''}}">
                                     </div>
                                 </div>
 

@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="section-title">
-                    <h3 class="title">{{ $feedbackTitle->title }}</h3>
+                    <h3 class="title">{{ $feedbackTitle->title ?? 'Client Testimonials' }}</h3>
                     <div class="desc">
-                        <p>{{ $feedbackTitle->sub_title }}</p>
+                        <p>{{ $feedbackTitle->sub_title ?? 'Here is what our clients say about us.' }}</p>
                     </div>
                 </div>
             </div>
@@ -16,14 +16,14 @@
                     @foreach($feedbacks as $feedback)
                         <div class="single-testimonial">
                             <div class="testimonial-header">
-                                <div class="quote">
+                                <div class="quote" aria-label="Quote Icon">
                                     <i class="fas fa-quote-left"></i>
                                 </div>
-                                <h5 class="title">{{ $feedback->name }}</h5>
-                                <h6 class="position">{{ $feedback->position }}</h6>
+                                <h5 class="title">{{ $feedback->name ?? 'Anonymous' }}</h5>
+                                <h6 class="position">{{ $feedback->position ?? 'Position not provided' }}</h6>
                             </div>
                             <div class="content">
-                                <p>{!! $feedback->description !!}</p>
+                                <p>{!! $feedback->description ?? 'No feedback provided.' !!}</p>
                             </div>
                         </div>
                     @endforeach

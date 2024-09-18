@@ -22,7 +22,8 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Template CSS -->
@@ -46,12 +47,12 @@
 
         <footer class="main-footer">
             <div class="footer-left">
-                Copyright &copy; 2018
+                Copyright &copy; 2024
                 <div class="bullet"></div>
-                Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+                Developed By <a href="https://www.linkedin.com/in/arjunthapamagar/" target="_blank">Arjun Thapa Magar</a>
             </div>
             <div class="footer-right">
-                2.3.0
+                1.0.0
             </div>
         </footer>
     </div>
@@ -82,7 +83,8 @@
 <script src="{{asset('assets/js/plugins/daterangepicker.js')}}"></script>
 <script src="{{asset('assets/js/plugins/select2.full.min.js')}}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
 
 <!-- Template JS File -->
 <script src="{{asset('assets/js/scripts.js')}}"></script>
@@ -100,24 +102,24 @@
 <!-- Show dynamic validation errors -->
 <script>
     @if(!empty($errors->all()))
-        @foreach($errors->all() as $error)
-            toastr.error("{{ $error }}");
-        @endforeach
+    @foreach($errors->all() as $error)
+    toastr.error("{{ $error }}");
+    @endforeach
     @endif
 </script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         // csrf token
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
         // sweet alert for delete
-        $('body').on('click', '.delete-item', function(e) {
+        $('body').on('click', '.delete-item', function (e) {
             e.preventDefault();
             let deleteUrl = $(this).attr('href');
             console.log(deleteUrl);
@@ -134,7 +136,7 @@
                     $.ajax({
                         type: 'delete',
                         url: deleteUrl,
-                        success: function(data) {
+                        success: function (data) {
                             if (data.status == 'error') {
                                 Swal.fire({
                                     title: "You can not delete!",
@@ -151,7 +153,7 @@
                                 });
                             }
                         },
-                        error: function(xhr, status, error) {
+                        error: function (xhr, status, error) {
                             Swal.fire({
                                 title: "Error!",
                                 text: "Something went wrong. Please try again.",

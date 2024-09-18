@@ -3,7 +3,7 @@
     $seoSetting = \App\Models\SeoSetting::first();
 @endphp
 
-<!doctype html>
+    <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -11,17 +11,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="{{ $seoSetting->description }}">
-    <meta name="keywords" content="{{ $seoSetting->keywords }}">
+    <meta name="description" content="{{ $seoSetting ? $seoSetting->description : '' }}">
+    <meta name="keywords" content="{{ $seoSetting ? $seoSetting->keywords : '' }}">
 
-    <title>{{ @$seoSetting->title }}</title>
+    <title>{{ $seoSetting ? $seoSetting->title : 'Default Title' }}</title>
 
-    <link rel="shortcut icon" type="image/ico" href="{{ asset($generalSetting->favicon) }}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/normalize.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/style-plugin-collection.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/theme.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
+    <link rel="shortcut icon" type="image/ico" href="{{ $generalSetting && $generalSetting->favicon ? asset($generalSetting->favicon) : asset('uploads/default/default-picture.webp') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style-plugin-collection.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
@@ -29,7 +29,7 @@
 
 <body>
 <div class="preloader">
-    <img src="{{asset('frontend/assets/images/preloader.gif')}}" alt="">
+    <img src="{{ asset('frontend/assets/images/preloader.gif') }}" alt="">
 </div>
 
 @include("frontend.layouts.navbar")
@@ -44,13 +44,12 @@
     <!-- Footer-Area-End -->
 </div>
 
-
-<script src="{{asset('frontend/assets/js/vendor/jquery-min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/contact-form.js')}}"></script>
-<script src="{{asset('frontend/assets/js/jquery-plugin-collection.js')}}"></script>
-<script src="{{asset('frontend/assets/js/vendor/modernizr.js')}}"></script>
-<script src="{{asset('frontend/assets/js/main.js')}}"></script>
+<script src="{{ asset('frontend/assets/js/vendor/jquery-min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/contact-form.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/jquery-plugin-collection.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/vendor/modernizr.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/main.js') }}"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -67,5 +66,3 @@
 </body>
 
 </html>
-
-

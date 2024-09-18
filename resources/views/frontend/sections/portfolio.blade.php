@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="section-title">
-                    <h3 class="title">{{ $portfolioTitle->title }}</h3>
+                    <h3 class="title">{{ $portfolioTitle->title ?? 'Our Portfolio' }}</h3>
                     <div class="desc">
-                        <p>{!! $portfolioTitle->sub_title !!}</p>
+                        <p>{!! $portfolioTitle->sub_title ?? 'Take a look at some of our recent work.' !!}</p>
                     </div>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                 <ul class="filter-menu">
                     <li class="active" data-filter="*">All Projects</li>
                     @foreach($portfolioCategories as $category)
-                        <li data-filter=".{{ $category->slug }}">{{ $category->name }}</li>
+                        <li data-filter=".{{ $category->slug }}">{{ $category->name ?? 'Uncategorized' }}</li>
                     @endforeach
                 </ul>
             </div>
@@ -26,14 +26,13 @@
                     <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{ $item->category->slug }}">
                         <div class="single-portfolio">
                             <figure class="portfolio-image">
-                                <img src="{{ asset($item->image) }}" alt="">
+                                <img src="{{ $item->image ? asset($item->image) : asset('uploads/default/default-picture.webp') }}" alt="{{ $item->title ?? 'Portfolio Item' }}">
                             </figure>
                             <div class="portfolio-content">
-                                <a href="{{ asset($item->image) }}" data-lity class="icon"><i
-                                        class="fas fa-plus"></i></a>
-                                <h4 class="title"><a href="{{ route("show.portfolio", $item->id) }}">{{ $item->title }}</a></h4>
+                                <a href="{{ asset($item->image) }}" data-lity class="icon"><i class="fas fa-plus"></i></a>
+                                <h4 class="title"><a href="{{ route('show.portfolio', $item->id) }}">{{ $item->title ?? 'No Title' }}</a></h4>
                                 <div class="desc">
-                                    <p>{!! Str::limit(strip_tags($item->description), 100) !!}</p>
+                                    <p>{!! Str::limit(strip_tags($item->description ?? 'No description available.'), 100) !!}</p>
                                 </div>
                             </div>
                         </div>

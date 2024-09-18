@@ -23,12 +23,14 @@
                                 @csrf
                                 @method('PUT')
 
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Logo Preview</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <img style="width: 200px;" src="{{ asset($setting->logo) }}" alt="">
+                                @if(isset($setting) && $setting->logo)
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Logo Preview</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <img style="width: 200px;" src="{{ asset($setting->logo) }}" alt="">
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Logo</label>
@@ -40,12 +42,14 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo Preview</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <img style="width: 200px;" src="{{ asset($setting->footer_logo) }}" alt="">
+                                @if(isset($setting) && $setting->footer_logo)
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo Preview</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <img style="width: 200px;" src="{{ asset($setting->footer_logo) }}" alt="">
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Footer Logo</label>
@@ -57,12 +61,14 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Favicon Preview</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <img style="width: 200px;" src="{{ asset($setting->favicon) }}" alt="">
+                                @if(isset($setting) && $setting->favicon)
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Favicon Preview</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <img style="width: 200px;" src="{{ asset($setting->favicon) }}" alt="">
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Favicon</label>

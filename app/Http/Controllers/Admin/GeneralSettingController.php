@@ -51,9 +51,9 @@ class GeneralSettingController extends Controller
         GeneralSetting::updateOrCreate(
             ['id' => $id],
             [
-                'logo' => (!empty($logoPath)) ? $logoPath : $setting->logo,
-                'footer_logo' => (!empty($footer_logo)) ? $footer_logo : $setting->footer_logo,
-                'favicon' => (!empty($favicon)) ? $favicon : $setting->favicon,
+                'logo' => (!empty($logoPath)) ? $logoPath : ($setting->logo ?? ''),
+                'footer_logo' => (!empty($footer_logo)) ? $footer_logo : ($setting->footer_logo ?? ''),
+                'favicon' => (!empty($favicon)) ? $favicon : ($setting->favicon ?? ''),
             ]
         );
 

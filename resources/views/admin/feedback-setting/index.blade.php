@@ -4,7 +4,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route("dashboard") }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Feedback Section Setting</h1>
         </div>
@@ -26,14 +26,14 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control" value="{{ $feedback->title }}">
+                                        <input type="text" name="title" class="form-control" value="{{ $feedback->title ?? ''}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Sub Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="sub_title" id="" class="form-control" style="height: 100px;">{{ $feedback->sub_title }}</textarea>
+                                        <textarea name="sub_title" id="" class="form-control" style="height: 100px;">{{ $feedback->sub_title ?? ''}}</textarea>
                                     </div>
                                 </div>
 

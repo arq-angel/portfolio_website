@@ -10,7 +10,7 @@
                 <div class="col-sm-4">
                     <div class="breadcrumbs">
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li>Portfolio</li>
                         </ul>
                     </div>
@@ -24,30 +24,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="head-title">{{ $portfolio->title }}</h2>
+                    <h2 class="head-title">{{ $portfolio->title ?? 'No Title Available' }}</h2>
                     <figure class="image-block">
-                        <img src="{{ asset($portfolio->image) }}" alt="" class="img-fix">
+                        <img src="{{ $portfolio->image ? asset($portfolio->image) : asset('default-portfolio-image.jpg') }}" alt="{{ $portfolio->title ?? 'Portfolio Image' }}" class="img-fix">
                     </figure>
-                    <div class="portflio-info">
+                    <div class="portfolio-info">
                         <div class="single-info">
                             <h4 class="title">Client</h4>
-                            <p>{{ $portfolio->client }}</p>
+                            <p>{{ $portfolio->client ?? 'Unknown Client' }}</p>
                         </div>
                         <div class="single-info">
                             <h4 class="title">Date</h4>
-                            <p>{{ date('d, M, Y', strtotime($portfolio->created_at)) }}</p>
+                            <p>{{ $portfolio->created_at ? date('d, M, Y', strtotime($portfolio->created_at)) : 'Unknown Date' }}</p>
                         </div>
                         <div class="single-info">
                             <h4 class="title">Website</h4>
-                            <p><a href="{{ $portfolio->website }}">{{ $portfolio->website }}</a></p>
+                            <p><a href="{{ $portfolio->website ?? 'javascript:void(0)' }}">{{ $portfolio->website ?? 'No website available' }}</a></p>
                         </div>
                         <div class="single-info">
                             <h4 class="title">Category</h4>
-                            <p>{{ $portfolio->category->name }}</p>
+                            <p>{{ $portfolio->category->name ?? 'Uncategorized' }}</p>
                         </div>
                     </div>
                     <div class="description">
-                        {!! $portfolio->description !!}
+                        {!! $portfolio->description ?? 'No description available.' !!}
                     </div>
                 </div>
             </div>
@@ -61,16 +61,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="quote-box">
-                        <div class="row ">
+                        <div class="row">
                             <div class="col-lg-6 offset-lg-3">
                                 <div class="quote-content">
                                     <h3 class="title">Your Journey Today</h3>
                                     <div class="desc">
-                                        <p>Still top of and the drops. What don't issued character god, no ports,
-                                            credit question.</p>
+                                        <p>Still top of and the drops. What don't issued character god, no ports, credit question.</p>
                                     </div>
-                                    <a href="#" class="button-orange mouse-dir">Get Started <span
-                                            class="dir-part"></span></a>
+                                    <a href="#" class="button-orange mouse-dir">Get Started <span class="dir-part"></span></a>
                                 </div>
                             </div>
                         </div>

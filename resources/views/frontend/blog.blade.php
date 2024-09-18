@@ -10,7 +10,7 @@
                 <div class="col-sm-5">
                     <div class="breadcrumbs">
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li>Blog</li>
                         </ul>
                     </div>
@@ -19,39 +19,50 @@
         </div>
     </header>
 
-    <!-- Portfolio-Area-Start -->
+    <!-- Blog-Area-Start -->
     <section class="blog-area section-padding">
         <div class="container">
             <div class="row">
-                @foreach($blogs as $blog)
-                    <div class="col-xl-4 col-md-6">
-                        <div class="single-blog">
-                            <figure class="blog-image">
-                                <img src="{{ asset($blog->image) }}" alt="">
-                            </figure>
-                            <div class="blog-content">
-                                <h3 class="title"><a href="{{ route("show.blog", $blog->id) }}">{{ $blog->title }}</a></h3>
-                                <div class="desc">
-                                    <p>{!! Str::limit(strip_tags($blog->description), 200, '...') !!}</p>
+                @if($blogs->isNotEmpty())
+                    @foreach($blogs as $blog)
+                        <div class="col-xl-4 col-md-6">
+                            <div class="single-blog">
+                                <figure class="blog-image">
+                                    <img src="{{ $blog->image ? asset($blog->image) : asset('default-blog-image.jpg') }}" alt="{{ $blog->title }}">
+                                </figure>
+                                <div class="blog-content">
+                                    <h3 class="title">
+                                        <a href="{{ route('show.blog', $blog->id) }}">{{ $blog->title }}</a>
+                                    </h3>
+                                    <div class="desc">
+                                        <p>{!! Str::limit(strip_tags($blog->description), 200, '...') !!}</p>
+                                    </div>
+                                    <a href="{{ route('show.blog', $blog->id) }}" class="button-primary-trans mouse-dir">Read More <span
+                                            class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
                                 </div>
-                                <a href="{{ route("show.blog", $blog->id) }}" class="button-primary-trans mouse-dir">Read More <span
-                                        class="dir-part"></span> <i class="fal fa-arrow-right"></i></a>
                             </div>
                         </div>
+                    @endforeach
+                @else
+                    <div class="col-sm-12 text-center">
+                        <p>No blogs available at the moment. Please check back later!</p>
                     </div>
-                @endforeach
+                @endif
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <nav class="navigation pagination">
-                        <div class="nav-links d-flex justify-content-center">
-                            {{ $blogs->links() }}
-                        </div>
-                    </nav>
+
+            @if($blogs->hasPages())
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <nav class="navigation pagination">
+                            <div class="nav-links d-flex justify-content-center">
+                                {{ $blogs->links() }}
+                            </div>
+                        </nav>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </section>
-    <!-- Portfolio-Area-End -->
+    <!-- Blog-Area-End -->
 
 @endsection
