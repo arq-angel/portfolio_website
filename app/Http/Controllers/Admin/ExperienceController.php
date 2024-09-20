@@ -51,7 +51,7 @@ class ExperienceController extends Controller
         Experience::updateOrCreate(
             ['id' => $id],
             [
-                'image' => (!empty($imagePath)) ? $imagePath : $experience->image,
+                'image' => (!empty($imagePath)) ? $imagePath : ($experience->image ?? ''),
                 'title' => $request->title,
                 'description' => $request->description,
                 'phone' => $request->phone,

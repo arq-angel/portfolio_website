@@ -4,7 +4,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route("admin.settings.index") }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Seo Setting</h1>
         </div>
@@ -24,23 +24,29 @@
                                 @method('PUT')
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo Title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo
+                                        Title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control" value="{{ $seoSetting->title ?? ''}}">
+                                        <input type="text" name="title" class="form-control"
+                                               value="{{ $seoSetting->title ?? ''}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo Description</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo
+                                        Description</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="description" id="" class="form-control" style="height: 100px;">{{ $seoSetting->description ?? ''}}</textarea>
+                                        <textarea name="description" id="" class="form-control"
+                                                  style="height: 100px;">{{ $seoSetting->description ?? ''}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo Keywords</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Seo
+                                        Keywords</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="keywords" class="form-control" value="{{ $seoSetting->keywords ?? ''}}">
+                                        <input type="text" name="keywords" class="form-control"
+                                               value="{{ $seoSetting->keywords ?? ''}}">
                                         <code>Keywords will be comma separated!</code>
                                     </div>
                                 </div>

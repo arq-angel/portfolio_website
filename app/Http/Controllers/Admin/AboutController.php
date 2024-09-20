@@ -53,8 +53,8 @@ class AboutController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => (!empty($imagePath)) ? $imagePath : $about->image,
-                'resume' => (!empty($resumePath)) ? $resumePath : $about->resume,
+                'image' => (!empty($imagePath)) ? $imagePath : ($about->image ?? ''),
+                'resume' => (!empty($resumePath)) ? $resumePath : ($about->resume ?? ''),
             ]
         );
 
